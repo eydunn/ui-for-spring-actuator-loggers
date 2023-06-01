@@ -46,7 +46,7 @@ function App() {
 
   return (
       <div>
-        <h1>Spring Actuator Loggers</h1>
+        <h1>UI for Spring Actuator loggers endpoint</h1>
         <input type="text" value={url} onChange={handleUrlChange} placeholder="Enter Spring Actuator Loggers URL" />
         {data && (
             <div>
