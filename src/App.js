@@ -10,11 +10,30 @@ function App() {
     setData(jsonData);
   };
 
+  const fetchCurrentState = async (logger) => {
+    const response = await fetch(`${url}/${logger}`);
+    const jsonData = await response.json();
+    return jsonData.configuredLevel;
+  };
+
   useEffect(() => {
     if (url !== '') {
       fetchData();
     }
   }, [url]);
+
+  useEffect(() => {
+    if (data) {
+      const fetchAllCurrentStates = async () => {
+        const newData = { ...data };
+        for (const logger of Object.keys(newData.loggers)) {
+          newData.loggers[logger].configuredLevel = await fetchCurrentState(logger);
+        }
+        setData(newData);
+      };
+      fetchAllCurrentStates();
+    }
+  }, [data]);
 
   const handleUrlChange = (event) => {
     setUrl(event.target.value);
