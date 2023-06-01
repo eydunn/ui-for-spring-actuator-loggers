@@ -37,6 +37,9 @@ function App() {
     if (!response.ok) {
       // Handle error
       console.error('Error updating level');
+    } else {
+      // Re-fetch data after updating level
+      fetchData();
     }
   };
 
