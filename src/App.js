@@ -20,10 +20,24 @@ function App() {
     setUrl(event.target.value);
   };
 
-  const handleLevelChange = (logger, event) => {
+  const handleLevelChange = async (logger, event) => {
+    const newLevel = event.target.value;
     const newData = { ...data };
-    newData.loggers[logger].configuredLevel = event.target.value;
+    newData.loggers[logger].configuredLevel = newLevel;
     setData(newData);
+
+    const response = await fetch(`${url}/${logger}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ configuredLevel: newLevel }),
+    });
+
+    if (!response.ok) {
+      // Handle error
+      console.error('Error updating level');
+    }
   };
 
   return (
