@@ -10,30 +10,11 @@ function App() {
     setData(jsonData);
   };
 
-  const fetchCurrentState = async (logger) => {
-    const response = await fetch(`${url}/${logger}`);
-    const jsonData = await response.json();
-    return jsonData.configuredLevel;
-  };
-
   useEffect(() => {
     if (url !== '') {
       fetchData();
     }
   }, [url]);
-
-  useEffect(() => {
-    if (data) {
-      const fetchAllCurrentStates = async () => {
-        const newData = { ...data };
-        for (const logger of Object.keys(newData.loggers)) {
-          newData.loggers[logger].configuredLevel = await fetchCurrentState(logger);
-        }
-        setData(newData);
-      };
-      fetchAllCurrentStates();
-    }
-  }, [data]);
 
   const handleUrlChange = (event) => {
     setUrl(event.target.value);
@@ -52,7 +33,7 @@ function App() {
             <div>
               {Object.keys(data.loggers).map((logger) => (
                   <div key={logger}>
-                    <h2>{logger}</h2>
+                    <h2>{logger} <span>(Effective Level: {data.loggers[logger].effectiveLevel})</span></h2>
                     <select
                         value={data.loggers[logger].configuredLevel}
                         onChange={(event) => handleLevelChange(logger, event)}
