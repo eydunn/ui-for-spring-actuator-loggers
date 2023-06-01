@@ -1,4 +1,20 @@
-# Getting Started with Create React App
+
+# UI for Spring Actuator loggers endpoint
+
+Appropriate CORS settings are needed for the Spring Actuator loggers endpoint to be accessible from this UI.  The following is an example of CORS settings for a Spring Boot application:
+
+```java
+management.endpoints.web.cors.allowed-origins=*
+management.endpoints.web.cors.allowed-methods=OPTIONS, GET, POST
+management.endpoints.web.cors.allowed-headers=*
+```
+
+If you are using kube-forwarder to access the Spring Actuator loggers endpoint, you will need to either add a https proxy in front of that or just run this app locally and http for both. See below for more details.
+
+-----------------
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
