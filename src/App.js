@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
   const [url, setUrl] = useState('');
@@ -45,7 +46,8 @@ function App() {
 
   return (
       <div>
-        <input type="text" value={url} onChange={handleUrlChange} placeholder="Enter URL" />
+        <h1>Spring Actuator Loggers</h1>
+        <input type="text" value={url} onChange={handleUrlChange} placeholder="Enter Spring Actuator Loggers URL" />
         {data && (
             <div>
               {Object.keys(data.loggers).map((logger) => (
