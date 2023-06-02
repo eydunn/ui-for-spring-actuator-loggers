@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import ForkMe from './ForkMe/ForkMe';
+
 import './App.css';
 
 function App() {
@@ -46,6 +48,7 @@ function App() {
 
   return (
       <div>
+        <ForkMe />
         <h1>UI for Spring Actuator loggers endpoint</h1>
         <input type="text" value={url} onChange={handleUrlChange} placeholder="Enter Spring Actuator Loggers URL" />
         {data && (
