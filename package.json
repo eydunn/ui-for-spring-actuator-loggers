@@ -1,8 +1,8 @@
 {
-  "name": "spring-actuator-loggers",
+  "name": "ui-for-spring-actuator-loggers",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://eydunn.github.io/spring-actuator-loggers",
+  "homepage": "http://eydunn.github.io/ui-for-spring-actuator-loggers",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
