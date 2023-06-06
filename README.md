@@ -9,7 +9,7 @@ management.endpoints.web.cors.allowed-methods=OPTIONS, GET, POST
 management.endpoints.web.cors.allowed-headers=*
 ```
 
-If you are using kube-forwarder to access the Spring Actuator loggers endpoint, you will need to either add a https proxy in front of that or just run this app locally and http for both. See below for more details.
+If you are using kube-forwarder to access the Spring Actuator loggers endpoint, you will need to either add a https proxy in front of that or just run this app locally and use http for both. See below for more details.
 
 -----------------
 
